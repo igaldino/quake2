@@ -1,7 +1,7 @@
-%define ver 5_34
+%define ver 6_00
 Name:           quake2
-Version:        5.34
-Release:        5%{?dist}
+Version:        6.00
+Release:        1%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -99,6 +99,9 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
 
 %changelog
+* Fri Feb 03 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-1
+- Changed the package version from 5.34 to 6.00
+
 * Fri Jul 29 2016 Frederico Lima <fredlima@fedoraproject.org> - 5.34-5
 - Updated file section to remove a few files left behing
 
