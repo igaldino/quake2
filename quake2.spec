@@ -1,7 +1,7 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -102,6 +102,9 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
 
 %changelog
+* Sat Feb 04 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-3
+- fixed missing Icon
+
 * Sat Feb 04 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-2
 - Added an patch to remove the rpaths from the makefile
 
