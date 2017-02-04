@@ -1,13 +1,14 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
 Source0:        https://github.com/yquake2/yquake2/archive/QUAKE2_%{ver}.tar.gz
 Source1:        %{name}.desktop
 Patch0:         allow-custom-cflags.patch
+Patch1:         remove-rpaths.patch
 BuildRequires:  mesa-libGL-devel,SDL2-devel,libogg-devel,libvorbis-devel
 BuildRequires:  openal-soft-devel,zlib-devel,desktop-file-utils
 
@@ -72,9 +73,11 @@ of the extracted patch.
 CFLAGS="%{optflags}" make %{?_smp_mflags} \
     WITH_SYSTEMWIDE=yes \
     WITH_SYSTEMDIR='%{_libdir}/games/%{name}'
+
 %make_build
 
 %install
+
 %{__install} -D -p -m 755 release/quake2 %{buildroot}%{_bindir}/quake2
 %{__install} -D -p -m 755 release/q2ded %{buildroot}%{_bindir}/q2ded
 %{__install} -D -p -m 755 release/baseq2/game.so \
@@ -99,6 +102,9 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
 
 %changelog
+* Sat Feb 04 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-2
+- Added an patch to remove the rpaths from the makefile
+
 * Fri Feb 03 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-1
 - Changed the package version from 5.34 to 6.00
 
