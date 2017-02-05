@@ -85,7 +85,7 @@ CFLAGS="%{optflags}" make %{?_smp_mflags} \
 %{__install} -D -p -m 644 stuff/yq2.cfg \
     %{buildroot}%{_libdir}/games/%{name}/baseq2/yq2.cfg
 %{__install} -D -p -m 644 stuff/icon/Quake2.png \
-    %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/quake2.svg
+    %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/quake2.png
 %{__install} -D -p -m 755 stuff/cdripper.sh \
     %{buildroot}%{_defaultdocdir}/%{name}/examples/cdripper.sh
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
