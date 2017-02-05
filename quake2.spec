@@ -1,7 +1,7 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -11,6 +11,7 @@ Patch0:         allow-custom-cflags.patch
 Patch1:         remove-rpaths.patch
 BuildRequires:  mesa-libGL-devel,SDL2-devel,libogg-devel,libvorbis-devel
 BuildRequires:  openal-soft-devel,zlib-devel,desktop-file-utils
+ExcludeArch:    armv7hl
 
 %description
 This package contains the enhanced GPL YamagiQuake2 version of the Quake 2 
@@ -70,7 +71,7 @@ of the extracted patch.
 
 
 %build
-CFLAGS="%{optflags} -Wl,-z,relro,-z,now" make %{?_smp_mflags} \
+CFLAGS="%{optflags}" make %{?_smp_mflags} \
     WITH_SYSTEMWIDE=yes \
     WITH_SYSTEMDIR='%{_libdir}/games/%{name}'
 
@@ -112,6 +113,9 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-9
+- excluded arch armv7hl
+
 * Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-8
 - added full relro flags
 
