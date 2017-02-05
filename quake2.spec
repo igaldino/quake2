@@ -1,7 +1,7 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -70,7 +70,7 @@ of the extracted patch.
 
 
 %build
-CFLAGS="%{optflags} -z relro" make %{?_smp_mflags} \
+CFLAGS="%{optflags} -Wl,-z,relro,-z,now" make %{?_smp_mflags} \
     WITH_SYSTEMWIDE=yes \
     WITH_SYSTEMDIR='%{_libdir}/games/%{name}'
 
@@ -112,6 +112,9 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-8
+- added full relro flags
+
 * Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-7
 - removed PIE cflag and added relro cflag
 
