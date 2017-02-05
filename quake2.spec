@@ -1,7 +1,7 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -84,8 +84,8 @@ CFLAGS="%{optflags}" make %{?_smp_mflags} \
     %{buildroot}%{_libdir}/games/%{name}/baseq2/game.so
 %{__install} -D -p -m 644 stuff/yq2.cfg \
     %{buildroot}%{_libdir}/games/%{name}/baseq2/yq2.cfg
-%{__install} -D -p -m 644 stuff/icon/Quake2.svg \
-    %{buildroot}%{_datadir}/pixmaps/quake2.svg
+%{__install} -D -p -m 644 stuff/icon/Quake2.png \
+    %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/quake2.svg
 %{__install} -D -p -m 755 stuff/cdripper.sh \
     %{buildroot}%{_defaultdocdir}/%{name}/examples/cdripper.sh
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
@@ -95,7 +95,7 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 %doc CHANGELOG CONTRIBUTE README.md
 %{_bindir}/*
 %{_libdir}/games/*
-%{_datadir}/pixmaps/*
+%{_datadir}/icons/hicolor/512x512/apps/*
 %{_datadir}/applications/* 
 %{_defaultdocdir}/%{name}/*
 
@@ -112,6 +112,9 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-5
+- altered icon and icon folder folder
+
 * Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-4
 - added update icon cache scriptlet
 
