@@ -1,7 +1,7 @@
 %define ver 6_00
 Name:           quake2
 Version:        6.00
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -99,9 +99,22 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 %{_datadir}/applications/* 
 %{_defaultdocdir}/%{name}/*
 
+%post
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
+%postun
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Sun Feb 05 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-4
+- added update icon cache scriptlet
+
 * Sat Feb 04 2017 Frederico Lima <fredlima@fedoraproject.org> - 6.00-3
 - fixed missing Icon
 

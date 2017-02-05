@@ -6,7 +6,7 @@ Exec=quake2
 StartupNotify=false
 Terminal=false
 Type=Application
-Icon=quake2.svg
+Icon=quake2
 Categories=Game;
 Keywords=game;shooter;multiplayer;online;
 
