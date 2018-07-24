@@ -9,6 +9,7 @@ Source0:        https://github.com/yquake2/yquake2/archive/QUAKE2_%{ver}.tar.gz
 Source1:        %{name}.desktop
 Patch0:         allow-custom-cflags.patch
 Patch1:         remove-rpaths.patch
+BuildRequires:  gcc
 BuildRequires:  mesa-libGL-devel,SDL2-devel,libogg-devel,libvorbis-devel
 BuildRequires:  openal-soft-devel,zlib-devel,desktop-file-utils
 ExcludeArch:    armv7hl
