@@ -1,25 +1,26 @@
---- yquake2-QUAKE2_6_00/Makefile	2016-12-02 13:53:30.000000000 -0200
-+++ yquake2-QUAKE2_6_00/Makefile-fred	2017-02-04 16:25:54.997667308 -0200
-@@ -447,7 +447,7 @@
- ifeq ($(OSTYPE), FreeBSD)
- release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$$ORIGIN/lib'
- else ifeq ($(OSTYPE), Linux)
+diff -Nur yquake2-QUAKE2_7_43/Makefile new/Makefile
+--- yquake2-QUAKE2_7_43/Makefile	2020-02-24 16:15:39.000000000 +0000
++++ new/Makefile	2020-07-01 02:37:42.770688386 +0000
+@@ -403,7 +403,7 @@
+ ifeq ($(YQ2_OSTYPE), FreeBSD)
+ release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$$ORIGIN/lib' -lexecinfo
+ else ifeq ($(YQ2_OSTYPE), Linux)
 -release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$$ORIGIN/lib'
 +#release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$$ORIGIN/lib'
  endif
  
  ifeq ($(WITH_SYSTEMWIDE),yes)
-@@ -455,13 +455,13 @@
- ifeq ($(OSTYPE), FreeBSD)
+@@ -411,13 +411,13 @@
+ ifeq ($(YQ2_OSTYPE), FreeBSD)
  release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$(WITH_SYSTEMDIR)/lib'
- else ifeq ($(OSTYPE), Linux)
+ else ifeq ($(YQ2_OSTYPE), Linux)
 -release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$(WITH_SYSTEMDIR)/lib'
 +#release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='$(WITH_SYSTEMDIR)/lib'
  endif
  else
- ifeq ($(OSTYPE), FreeBSD)
+ ifeq ($(YQ2_OSTYPE), FreeBSD)
  release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='/usr/share/games/quake2/lib'
- else ifeq ($(OSTYPE), Linux)
+ else ifeq ($(YQ2_OSTYPE), Linux)
 -release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='/usr/share/games/quake2/lib'
 +#release/quake2 : LDFLAGS += -Wl,-z,origin,-rpath='/usr/share/games/quake2/lib'
  endif

@@ -1,12 +1,12 @@
-diff -Nur yquake2-QUAKE2_5_34/Makefile new/Makefile
---- yquake2-QUAKE2_5_34/Makefile	2016-06-25 10:28:42.000000000 +0200
-+++ new/Makefile	2016-07-19 11:18:06.896494476 +0200
-@@ -154,7 +154,7 @@
+diff -Nur yquake2-QUAKE2_7_43/Makefile new/Makefile
+--- yquake2-QUAKE2_7_43/Makefile	2020-02-24 16:15:39.000000000 +0000
++++ new/Makefile	2020-07-01 02:18:04.397380388 +0000
+@@ -136,7 +136,7 @@
  		  -Wall -pipe -g -fwrapv
  CFLAGS += $(OSX_ARCH)
  else
--CFLAGS := -O2 -fno-strict-aliasing -fomit-frame-pointer \
-+CFLAGS := $(CFLAGS) -O2 -fno-strict-aliasing -fomit-frame-pointer \
+-CFLAGS := -std=gnu99 -O2 -fno-strict-aliasing \
++CFLAGS := $(CFLAGS) -std=gnu99 -O2 -fno-strict-aliasing \
  		  -Wall -pipe -g -ggdb -MMD -fwrapv
  endif
  

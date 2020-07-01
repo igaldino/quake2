@@ -1,8 +1,8 @@
 %define _legacy_common_support 1
-%define ver 6_00
+%define ver 7_43
 Name:           quake2
-Version:        6.00
-Release:        14%{?dist}
+Version:        7.43
+Release:        1%{?dist}
 Summary:        Quake II (Yamagi version)
 License:        GPLv2 
 URL:            http://www.yamagi.org/quake2 
@@ -12,7 +12,7 @@ Patch0:         allow-custom-cflags.patch
 Patch1:         remove-rpaths.patch
 BuildRequires:  gcc
 BuildRequires:  mesa-libGL-devel,SDL2-devel,libogg-devel,libvorbis-devel
-BuildRequires:  openal-soft-devel,zlib-devel,desktop-file-utils
+BuildRequires:  openal-soft-devel,zlib-devel,desktop-file-utils,libcurl-devel
 ExcludeArch:    armv7hl
 
 %description
@@ -95,7 +95,7 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
 %files
 %license LICENSE
-%doc CHANGELOG CONTRIBUTE README.md
+%doc CHANGELOG README.md
 %{_bindir}/*
 %{_libdir}/games/*
 %{_datadir}/icons/hicolor/512x512/apps/*
@@ -103,6 +103,9 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 %{_defaultdocdir}/%{name}/*
 
 %changelog
+* Wed Jul 01 2020 Isaque Galdino <igaldino@gmail.com> - 7.43-1
+- new version 7.43
+
 * Sun Mar 29 2020 Itamar Reis Peixoto <itamar@ispbrasil.com.br> - 6.00-14
 - fix FTBS rhbz#1799959
 
